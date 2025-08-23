@@ -12,6 +12,7 @@ The model learns discriminative features and compresses them into compact binary
 
 # Dataset Preparation
 1.Download your dataset (e.g., WildFish) and place it under:/path/to/dataset/WildFish/
+
 2.Prepare split files:wildfish_Train.txt、wildfish_DB.txt、wildfish_Query.txt
 
 # setting
