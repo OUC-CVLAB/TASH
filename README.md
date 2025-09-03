@@ -15,6 +15,8 @@ The model learns discriminative features and compresses them into compact binary
 
 2.Prepare split files:wildfish_Train.txt、wildfish_DB.txt、wildfish_Query.txt
 
+# required environment
+
 # setting
 Our TASH is trained with Adam optimizer (weight decay: 1e-5, learning rate: 3e-4) for 150 epochs. A linear warm-up followed by a cosine annealing schedule is applied. The batch size is 64.The loss weights are set as  λ₁ = 0.1 and λ₂ = 0.1, following DHD. The fused layer number Nf is 6, and the learnable α in Eq.(\ref{eq:score}) is constrained within [0, 1] by the Sigmoid function.
 
