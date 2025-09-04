@@ -25,7 +25,7 @@ Owing to the file size limitation, the project includes only the Sea Animals dat
 - timm==1.0.15
 
 # setting
-Our TASH is trained with Adam optimizer (weight decay: 1e-5, learning rate: 3e-4) for 150 epochs. A linear warm-up followed by a cosine annealing schedule is applied. The batch size is 64.The loss weights are set as  λ₁ = 0.1 and λ₂ = 0.1, following DHD. The fused layer number Nf is 6, and the learnable α in Eq.(\ref{eq:score}) is constrained within [0, 1] by the Sigmoid function.
+Our TASH is trained with Adam optimizer (weight decay: 1e-5, learning rate: 3e-4) for 150 epochs. A linear warm-up followed by a cosine annealing schedule is applied. The batch size is 64.The loss weights are set as  λ₁ = 0.1 and λ₂ = 0.1, following DHD. The fused layer number Nf is 6, and the learnable α in score is constrained within [0, 1] by the Sigmoid function.
 
 ## Training
 CUDA_VISIBLE_DEVICES=0 python main_DHD.py --mode train \
@@ -40,6 +40,8 @@ CUDA_VISIBLE_DEVICES=0 python main_DHD.py --mode train \
     --max_epoch 150
 
 ## Testing
+sameQueryDB parameter (in Evaluate_mAP): When computing mAP, if the database and the query set are identical, set this parameter to True to exclude self-matching results (i.e., to prevent a query item from retrieving itself).
+
 CUDA_VISIBLE_DEVICES=0 python main_DHD.py --mode test \
     --dataset wildfish \
     --data_dir /path/to/dataset/WildFish/ \
